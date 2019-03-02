@@ -1,0 +1,81 @@
+<html>
+  <head> 
+    
+    <title> Gym Demo </title>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+  <script src="https://unpkg.com/@editvr/aframe-dialog-popup-component@1.7.2/dist/aframe-dialog-popup-component.min.js"></script>
+  </head>
+  
+  <body>
+    
+    <a-scene>
+
+  <a-assets>
+       <a-asset-item id="trainer" src="models/trainer/scene.gltf"></a-asset-item>
+      <a-asset-item id="bike" src="models/bike/scene.gltf"></a-asset-item>
+      <a-asset-item id="dumbell" src="models/dumbell/scene.gltf"></a-asset-item>
+      <a-asset-item id="dumbell_sec" src="models/dumbell_sec/scene.gltf"></a-asset-item>
+      <a-asset-item id="benchpress" src="models/benchpress/scene.gltf"></a-asset-item>
+      <a-asset-item id="ladder" src="models/ladder/scene.gltf"></a-asset-item>
+      <a-asset-item id="boxing" src="models/boxing/scene.gltf"></a-asset-item>
+
+       <img id="ceiling" src="models/background/textures/back.jpg">
+       <img id="floor" src="models/background/textures/texture_mat.jpg">
+       <img id="info_icon" src="models/background/textures/icon.png">
+       <img id="close_icon" src="models/background/textures/close_icon.png">
+     </a-assets>
+      
+      <a-entity camera look-controls orbit-controls="target: 0 0 0;  initialPosition: -5 5 20" cursor="rayOrigin: mouse">
+      </a-entity>
+
+    <a-entity id="dialog" position="0 5 -2" dialog-popup="openIconImage: #info_icon; closeIconImage: #close_icon; title: My Title; body: My Body"></a-entity>
+
+<!-- Sky and Floor -->
+<a-plane src="#floor" scale="1000 1000 50" position="0 -0.005 0" rotation="-90 0 0"></a-plane>
+<a-sky color="black"	></a-sky>
+
+<!-- Box Platform -->
+<a-box id="sun" position="-4.8503 -0.27359 1.79641" color="red"
+      event-set__enter = "_event: click; scale: 2 2 2"
+      event-set__leave = "_event: mouseleave; scale: 1 1 1">
+</a-box>
+
+<!-- Trainer -->
+<a-gltf-model id="trainer_master" src="#trainer" position="-14.681 -5.393 -2.581" scale="5 5 5" rotation="0 0 0"
+              event-set__enter = "_event: mouseenter; scale: 6 6 6"
+              event-set__leave = "_event: mouseleave; scale: 5 5 5">
+</a-gltf-model>
+
+<!-- Ladder -->
+     <a-gltf-model id="ladder" src="#ladder" position="10.265 0.013 7.206" scale="5.686 4.77241 4.43865" rotation="0 90 0">
+     </a-gltf-model>
+
+<!-- dumbells -->
+      <a-gltf-model id="dumbell1" src="#dumbell"  position="-7.006 0.340 -4.042"  scale="0.6 0.6 0.6">	
+     </a-gltf-model>
+<a-gltf-model id="dumbell2" src="#dumbell" position="-6.124 0.38937 -4.02319" scale="0.7 0.7 0.9">
+     </a-gltf-model>
+<a-gltf-model id="dumbell3" src="#dumbell" position="-5.14182 0.583 -4.025" scale="0.8 0.8 1">
+     </a-gltf-model>
+
+     <a-gltf-model id="dumbell_1" src="#dumbell_sec"  position="8.421 0.716 -8.099"  scale="0.05 0.05 0.05" rotation="0 90 0">
+     </a-gltf-model>
+<a-gltf-model id="dumbell_2" src="#dumbell_sec"  position="8.522 0.601 -5.602"  scale="0.05 0.05 0.05" rotation="0 180 0">
+     </a-gltf-model>
+
+<!-- Bike -->
+<a-gltf-model id="bike1" src="#bike"  position="-12.643 2.119 9.661"  rotation="0 90 0" scale="0.1 0.1 0.1" >
+</a-gltf-model>
+<a-gltf-model id="bike2" src="#bike"  position="-12.761 2.129 5.655"  rotation="0 90 0" scale="0.1 0.1 0.1">
+</a-gltf-model>
+
+    </a-scene>
+   
+  </body>
+</html>
+
+
